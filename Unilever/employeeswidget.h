@@ -5,6 +5,7 @@
 #include <QSqlRelationalTableModel>
 
 #include "qchartviewer.h"
+#include "personalcardwidget.h"
 
 namespace Ui {
 class employeesWidget;
@@ -24,6 +25,7 @@ private slots:
 
 private:
     Ui::employeesWidget *ui;
+    PersonalCardWidget *wnd;
 };
 
 #endif // EMPLOYEESWIDGET_H

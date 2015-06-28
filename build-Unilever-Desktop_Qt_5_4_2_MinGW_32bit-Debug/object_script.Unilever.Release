@@ -11,7 +11,7 @@ INPUT(
 ./release\skillslevelwidget.o
 ./release\skillswidget.o
 ./release\qchartviewer.o
-./release\personalcardscreen.o
+./release\personalcardwidget.o
 ./release\qrc_unileverres.o
 ./release\moc_mainwindow.o
 ./release\moc_aboutdialog.o
@@ -24,5 +24,5 @@ INPUT(
 ./release\moc_skillslevelwidget.o
 ./release\moc_skillswidget.o
 ./release\moc_qchartviewer.o
-./release\moc_personalcardscreen.o
+./release\moc_personalcardwidget.o
 );

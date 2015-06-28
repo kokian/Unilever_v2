@@ -1,8 +1,7 @@
 #ifndef PERSONALCARDWIDGET_H
 #define PERSONALCARDWIDGET_H
 
-#include <QDialog>
-#include <QWidget>
+#include <QMainWindow>
 #include "qchartviewer.h"
 #include <QSqlTableModel>
 
@@ -10,12 +9,12 @@ namespace Ui {
 class PersonalCardWidget;
 }
 
-class PersonalCardWidget : public QWidget
+class PersonalCardWidget : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit PersonalCardWidget(QString personal_id, QWidget *parent = 0);
+    explicit PersonalCardWidget(QString& personal_id,QWidget *parent = 0);
     ~PersonalCardWidget();
 
 private:

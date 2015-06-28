@@ -1,79 +1,48 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>PersonalCardWidget</class>
- <widget class="QWidget" name="PersonalCardWidget">
-  <property name="modal" stdset="0">
-   <bool>false</bool>
+ <widget class="QMainWindow" name="PersonalCardWidget">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
   </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1095</width>
-    <height>697</height>
+    <width>944</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Карточка сотрудника</string>
+   <string>MainWindow</string>
   </property>
-  <widget class="QTableView" name="personalInfoTableView">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>30</y>
-     <width>256</width>
-     <height>391</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>10</y>
-     <width>500</width>
-     <height>500</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::Box</enum>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="scaledContents">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QTableView" name="averageStatsTableView">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>451</y>
-     <width>256</width>
-     <height>211</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QTableView" name="personalSkillsTableView">
-   <property name="geometry">
-    <rect>
-     <x>830</x>
-     <y>200</y>
-     <width>256</width>
-     <height>192</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QWidget" name="radarWidget" native="true">
-   <property name="geometry">
-    <rect>
-     <x>830</x>
-     <y>50</y>
-     <width>256</width>
-     <height>141</height>
-    </rect>
-   </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableView" name="personalSkillsTableView">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>50</y>
+      <width>256</width>
+      <height>451</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>40</y>
+      <width>500</width>
+      <height>500</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

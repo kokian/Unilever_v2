@@ -1,18 +1,21 @@
 #include "personalcardwidget.h"
 #include "ui_personalcardwidget.h"
+
 #include "dbmanager.h"
 #include <QSqlTableModel>
 #include <QLayout>
 
-PersonalCardWidget::PersonalCardWidget(QString personal_id, QWidget *parent) :
-    QWidget(parent),
+PersonalCardWidget::PersonalCardWidget(QString& personal_id,QWidget *parent) :
+    QMainWindow(parent),
     ui(new Ui::PersonalCardWidget)
 {
     ui->setupUi(this);
+
     QSqlTableModel* model = DBManager::getInstance()->initModel(ENT_EMPLOYEES_X_SKILLS);
-    model->setFilter(QString("employee_id='%1'").arg(personal_id));
-    ui->personalSkillsTableView->setModel(model);
+    model->setFilter(QString("employee_id='%1'").arg(personal_id));    
     model->select();
+    ui->personalSkillsTableView->setModel(model);
+
     QLayout* radarLayout = new QHBoxLayout();
     radarLayout->addWidget(this->drawRadar(model));
     ui->label->setLayout(radarLayout);

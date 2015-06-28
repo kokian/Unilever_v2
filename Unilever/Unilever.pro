@@ -24,7 +24,7 @@ SOURCES += main.cpp\
     skillslevelwidget.cpp \
     skillswidget.cpp \
     qchartviewer.cpp \
-    personalcardscreen.cpp
+    personalcardwidget.cpp
 
 HEADERS  += mainwindow.h \
     aboutdialog.h \
@@ -38,7 +38,7 @@ HEADERS  += mainwindow.h \
     skillslevelwidget.h \
     skillswidget.h \
     qchartviewer.h \
-    personalcardscreen.h
+    personalcardwidget.h
 
 FORMS    += mainwindow.ui \
     aboutdialog.ui \
@@ -48,7 +48,7 @@ FORMS    += mainwindow.ui \
     skillstypewidget.ui \
     skillslevelwidget.ui \
     skillswidget.ui \
-    personalcardscreen.ui
+    personalcardwidget.ui
 
 RESOURCES += \
     unileverres.qrc

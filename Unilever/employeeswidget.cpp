@@ -1,6 +1,6 @@
 #include "employeeswidget.h"
 #include "ui_employeeswidget.h"
-#include "personalcardscreen.h"
+
 #include "constants.h"
 #include "dbmanager.h"
 
@@ -30,11 +30,8 @@ void EmployeesWidget::on_tableView_doubleClicked(const QModelIndex &index)
     QModelIndex idIndex = index.model()->index(index.row(), 0);
     QString id = index.model()->data(idIndex).toString();
 
-    PersonalCardScreen wnd(id, this);
-    wnd.show();
-
-    // wnd.setModal(true);
-    //wnd.exec();
+    wnd = new PersonalCardWidget(id, this);
+    wnd->show();
 }
 
 void EmployeesWidget::on_button_add_employee_clicked()
