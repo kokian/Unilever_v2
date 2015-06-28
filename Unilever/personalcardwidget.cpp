@@ -40,7 +40,7 @@ BaseChart* PersonalCardWidget::stackradar(int, const char **imageMap, QSqlTableM
     //double data0[] = {100, 100, 100, 100, 100, 100};
     //double data1[] = {90, 85, 85, 80, 70, 60};
     //double data2[] = {80, 65, 65, 75, 45, 30};
-    model->setFilter("unknown_id=1");
+    //model->setFilter("unknown_id=1");
     int count = model->rowCount();
     double** data = new double*[6];
     for(int j = 0; j < 6; j++)

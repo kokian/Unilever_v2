@@ -17,6 +17,7 @@ class EmployeesWidget : public QWidget
 
 public:
     explicit EmployeesWidget(QWidget *parent = 0);
+    void importEmployeesFromXls(QString filename);
     ~EmployeesWidget();
 private slots:
     void on_tableView_doubleClicked(const QModelIndex &index);

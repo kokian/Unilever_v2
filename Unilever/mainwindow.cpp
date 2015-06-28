@@ -1,11 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QFileDialog>
+
 #include "aboutdialog.h"
 #include "skillstypewidget.h"
 #include "skillslevelwidget.h"
 #include "positionwidget.h"
 #include "listofskillswidget.h"
+#include "parsemanager.h"
 
 #include "employeeswidget.h"
 #include "skillswidget.h"
@@ -91,4 +94,18 @@ void MainWindow::on_action_skill_level_triggered()
     SkillsLevelWidget wnd(this);
     wnd.setModal(true);
     wnd.exec();
+}
+
+void MainWindow::on_action_Import_triggered()
+{
+    if (ui->tabWidget->currentIndex() != 0) {
+        return;
+    }
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Excel file"), "", tr("Excel Files (*.xlsx)"));
+    if(fileName.isNull()) {
+        return;
+    }
+    QWidget* curWidget = ui->tabWidget->widget(ui->tabWidget->currentIndex());
+    EmployeesWidget* pEmplWgt = static_cast<EmployeesWidget*>(curWidget);
+    pEmplWgt->importEmployeesFromXls(fileName);
 }
