@@ -92,3 +92,9 @@ void MainWindow::on_action_skill_level_triggered()
     wnd.setModal(true);
     wnd.exec();
 }
+
+void MainWindow::on_action_Import_triggered()
+{
+
+
+}

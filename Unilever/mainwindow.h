@@ -32,6 +32,8 @@ private slots:
 
     void on_action_skill_level_triggered();
 
+    void on_action_Import_triggered();
+
 private:
 
     DBManager* dbManager;

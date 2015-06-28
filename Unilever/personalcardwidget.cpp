@@ -40,7 +40,8 @@ BaseChart* PersonalCardWidget::stackradar(int, const char **imageMap, QSqlTableM
     //double data0[] = {100, 100, 100, 100, 100, 100};
     //double data1[] = {90, 85, 85, 80, 70, 60};
     //double data2[] = {80, 65, 65, 75, 45, 30};
-    model->setFilter("unknown_id=1");
+
+    //model->setFilter("unknown_id=1");
     int count = model->rowCount();
     double** data = new double*[6];
     for(int j = 0; j < 6; j++)
@@ -87,15 +88,16 @@ BaseChart* PersonalCardWidget::stackradar(int, const char **imageMap, QSqlTableM
     */
     // Create a PolarChart object of size 480 x 460 pixels. Set background color to
     // silver, with 1 pixel 3D border effect
-    PolarChart *c = new PolarChart(500, 500, Chart::silverColor(), 0x000000, 1);
+    PolarChart *c = new PolarChart(420, 420, Chart::silverColor(), 0x000000, 1);
+
 
     // Add a title to the chart using 15 pts Times Bold Italic font. The title text
     // is white (ffffff) on a deep green (008000) background
-    c->addTitle("Skills Radar", "timesbi.ttf", 15, 0xffffff)->setBackground(
+    c->addTitle("Skills Radar", "timesbi.ttf", 12, 0xffffff)->setBackground(
         0x008000);
 
     // Set plot area center at (240, 270), with 150 pixels radius
-    c->setPlotArea(275, 300, 150);
+    c->setPlotArea(210, 245, 140);
 
     // Use 1 pixel width semi-transparent black (c0000000) lines as grid lines
     c->setGridColor(0xc0000000, 1, 0xc0000000, 1);
@@ -103,9 +105,11 @@ BaseChart* PersonalCardWidget::stackradar(int, const char **imageMap, QSqlTableM
     // Add a legend box at top-center of plot area (240, 35) using horizontal layout.
     // Use 10 pts Arial Bold font, with silver background and 1 pixel 3D border
     // effect.
-    LegendBox *b = c->addLegend(240, 35, false, "arialbd.ttf", 8);
+    LegendBox *b = c->addLegend(210, 35, false, "arialbd.ttf", 8);
     b->setAlignment(Chart::TopCenter);
     b->setBackground(Chart::silverColor(), Chart::Transparent, 1);
+
+
 
     // Add area layers of different colors to represent the data
     c->addAreaLayer(DoubleArray(data[0], count),
@@ -133,6 +137,7 @@ BaseChart* PersonalCardWidget::stackradar(int, const char **imageMap, QSqlTableM
     c->radialAxis()->setColors(0xc0000000, Chart::Transparent);
 
     // Output the chart
+
     c->makeChart();
 
     //include tool tip for the chart
