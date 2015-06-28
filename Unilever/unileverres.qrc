@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>icons/xlsimport.png</file>
+        <file>icons/quit.png</file>
+        <file>icons/info.png</file>
+        <file>icons/dictonary_positions.png</file>
+        <file>icons/skills.png</file>
+        <file>icons/logo.png</file>
+        <file>icons/copy.png</file>
+        <file>icons/cut.png</file>
+        <file>icons/paste.png</file>
+        <file>icons/employee_add.png</file>
+        <file>icons/employee_delete.png</file>
+        <file>icons/save.png</file>
+    </qresource>
+</RCC>

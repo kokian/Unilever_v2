@@ -1,24 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1024</width>
+    <height>768</height>
    </rect>
   </property>
-  <property name="windowTitle" >
-   <string>MainWindow</string>
+  <property name="windowTitle">
+   <string>HR Unilever</string>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <property name="windowIcon">
+   <iconset resource="unileverres.qrc">
+    <normaloff>:/Images/icons/logo.png</normaloff>:/Images/icons/logo.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="tabPosition">
+       <enum>QTabWidget::North</enum>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Rounded</enum>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+      <property name="documentMode">
+       <bool>false</bool>
+      </property>
+      <property name="tabsClosable">
+       <bool>false</bool>
+      </property>
+      <property name="movable">
+       <bool>false</bool>
+      </property>
+      <property name="tabBarAutoHide">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="action_Import"/>
+    <addaction name="separator"/>
+    <addaction name="action_Close"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Справочники</string>
+    </property>
+    <addaction name="action_dictonary_positions"/>
+    <addaction name="action_list_of_skills"/>
+    <addaction name="action_skill_type"/>
+    <addaction name="action_skill_level"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>Помощь</string>
+    </property>
+    <addaction name="action_about"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>Правка</string>
+    </property>
+    <addaction name="action_Edit_copy"/>
+    <addaction name="action_Edit_paste"/>
+    <addaction name="action_Edit_cut"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_4"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_Import"/>
+   <addaction name="separator"/>
+   <addaction name="action_Edit_copy"/>
+   <addaction name="action_Edit_cut"/>
+   <addaction name="action_Edit_paste"/>
+   <addaction name="separator"/>
+   <addaction name="action_dictonary_positions"/>
+   <addaction name="action_list_of_skills"/>
+   <addaction name="separator"/>
+   <addaction name="action_about"/>
+   <addaction name="action_Close"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="action_Import">
+   <property name="icon">
+    <iconset resource="unileverres.qrc">
+     <normaloff>:/Images/icons/xlsimport.png</normaloff>:/Images/icons/xlsimport.png</iconset>
+   </property>
+   <property name="text">
+    <string>Импорт сотрудников</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="action_Close">
+   <property name="icon">
+    <iconset resource="unileverres.qrc">
+     <normaloff>:/Images/icons/quit.png</normaloff>:/Images/icons/quit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Выход</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="action_about">
+   <property name="icon">
+    <iconset resource="unileverres.qrc">
+     <normaloff>:/Images/icons/info.png</normaloff>:/Images/icons/info.png</iconset>
+   </property>
+   <property name="text">
+    <string>О программе</string>
+   </property>
+  </action>
+  <action name="action_dictonary_positions">
+   <property name="icon">
+    <iconset resource="unileverres.qrc">
+     <normaloff>:/Images/icons/dictonary_positions.png</normaloff>:/Images/icons/dictonary_positions.png</iconset>
+   </property>
+   <property name="text">
+    <string>Должности</string>
+   </property>
+  </action>
+  <action name="action_list_of_skills">
+   <property name="icon">
+    <iconset resource="unileverres.qrc">
+     <normaloff>:/Images/icons/skills.png</normaloff>:/Images/icons/skills.png</iconset>
+   </property>
+   <property name="text">
+    <string>Перечень навыков</string>
+   </property>
+   <property name="toolTip">
+    <string>Перечень навыков</string>
+   </property>
+  </action>
+  <action name="action_skill_type">
+   <property name="text">
+    <string>Типы навыков</string>
+   </property>
+   <property name="toolTip">
+    <string>Типы навыков</string>
+   </property>
+  </action>
+  <action name="action_skill_level">
+   <property name="text">
+    <string>Уровни навыков</string>
+   </property>
+   <property name="toolTip">
+    <string>Уровни навыков</string>
+   </property>
+  </action>
+  <action name="action_Edit_copy">
+   <property name="icon">
+    <iconset resource="unileverres.qrc">
+     <normaloff>:/Images/icons/copy.png</normaloff>:/Images/icons/copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Копировать</string>
+   </property>
+  </action>
+  <action name="action_Edit_paste">
+   <property name="icon">
+    <iconset resource="unileverres.qrc">
+     <normaloff>:/Images/icons/paste.png</normaloff>:/Images/icons/paste.png</iconset>
+   </property>
+   <property name="text">
+    <string>Вставить</string>
+   </property>
+  </action>
+  <action name="action_Edit_cut">
+   <property name="icon">
+    <iconset resource="unileverres.qrc">
+     <normaloff>:/Images/icons/cut.png</normaloff>:/Images/icons/cut.png</iconset>
+   </property>
+   <property name="text">
+    <string>Вырезать</string>
+   </property>
+  </action>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
- <resources/>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="unileverres.qrc"/>
+ </resources>
  <connections/>
 </ui>
