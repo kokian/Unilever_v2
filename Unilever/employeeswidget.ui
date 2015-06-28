@@ -68,7 +68,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="unilleverres.qrc">:/Images/icons/logo.png</pixmap>
+         <pixmap resource="unileverres.qrc">:/Images/icons/logo.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -213,7 +213,7 @@
         <string>Добавить</string>
        </property>
        <property name="icon">
-        <iconset resource="unilleverres.qrc">
+        <iconset resource="unileverres.qrc">
          <normaloff>:/Images/icons/employee_add.png</normaloff>:/Images/icons/employee_add.png</iconset>
        </property>
        <property name="shortcut">
@@ -227,7 +227,7 @@
         <string>Удалить</string>
        </property>
        <property name="icon">
-        <iconset resource="unilleverres.qrc">
+        <iconset resource="unileverres.qrc">
          <normaloff>:/Images/icons/employee_delete.png</normaloff>:/Images/icons/employee_delete.png</iconset>
        </property>
        <property name="shortcut">
@@ -254,7 +254,7 @@
         <string>Сохранить</string>
        </property>
        <property name="icon">
-        <iconset resource="unilleverres.qrc">
+        <iconset resource="unileverres.qrc">
          <normaloff>:/Images/icons/save.png</normaloff>:/Images/icons/save.png</iconset>
        </property>
        <property name="shortcut">
@@ -283,7 +283,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="unilleverres.qrc"/>
+  <include location="unileverres.qrc"/>
  </resources>
  <connections/>
 </ui>

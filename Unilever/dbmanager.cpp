@@ -1,5 +1,7 @@
 #include "dbmanager.h"
 
+DBManager* DBManager::instance = NULL;
+
 DBManager::DBManager(QObject *parent) : QObject(parent) {
 
 }
@@ -15,6 +17,14 @@ DBManager::DBManager(QString host, int port, QString driver, QString name, QStri
     db_name = name;
     db_user = user;
     db_password = password;
+}
+
+DBManager* DBManager::getInstance() {
+    if(!DBManager::instance) {
+        DBManager::instance = new DBManager("188.166.126.89", 5432, "QPSQL", "postgres", "postgres", "74507");
+    }
+
+    return DBManager::instance;
 }
 
 bool DBManager::createConnection(QString host, int port, QString driver, QString name, QString user, QString password) {
@@ -173,6 +183,10 @@ QSqlTableModel* DBManager::initModel(ENTITY_NAME ename) {
          model->setHeaderData(3, Qt::Horizontal, QObject::tr("TYPE"));
          model->setHeaderData(4, Qt::Horizontal, QObject::tr("DESCRIPTION"));
          model->setHeaderData(5, Qt::Horizontal, QObject::tr("PILLAR"));
+        break;
+    case ENT_EMPLOYEES_X_SKILLS:
+        model = new QSqlTableModel(0, connection);
+        model->setTable("ul_employees_x_skills");
         break;
     default:
         model = new QSqlTableModel(0, connection);

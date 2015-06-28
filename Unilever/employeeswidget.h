@@ -2,6 +2,9 @@
 #define EMPLOYEESWIDGET_H
 
 #include <QWidget>
+#include <QSqlRelationalTableModel>
+
+#include "qchartviewer.h"
 
 namespace Ui {
 class employeesWidget;
@@ -14,7 +17,6 @@ class EmployeesWidget : public QWidget
 public:
     explicit EmployeesWidget(QWidget *parent = 0);
     ~EmployeesWidget();
-
 private slots:
     void on_tableView_doubleClicked(const QModelIndex &index);
 

@@ -17,7 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
 
-    dbManager = new DBManager("188.166.126.89", 5432, "QPSQL", "postgres", "postgres", "74507", this);
+    //dbManager = new DBManager("188.166.126.89", 5432, "QPSQL", "postgres", "postgres", "74507", this);
+    dbManager = DBManager::getInstance();
     dbManager->connect();
 
     QString titles[] = {"Сотрудники", "Навыки"};//, "Personal Card", "Personal Radar", "Personal Plan"};
@@ -43,15 +44,6 @@ QWidget* MainWindow::createView(VIEW_NAME vName) {
     case VIEW_SKILLS:
         view = new SkillsWidget(this);
         break;
- /*   case VIEW_EMPLOYEE_CARD:
-        view = new QWidget();
-        break;
-    case VIEW_EMPLOYEE_RADAR:
-        view = new QWidget();
-        break;
-    case VIEW_EMPLOYEE_PLAN:
-        view = new QWidget();
-        break;*/
     default:
         view = new QWidget();
         break;

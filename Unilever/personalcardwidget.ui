@@ -1,54 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>PersonalCardWidget</class>
- <widget class="QDialog" name="PersonalCardWidget">
+ <widget class="QWidget" name="PersonalCardWidget">
+  <property name="modal" stdset="0">
+   <bool>false</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>985</width>
+    <width>1095</width>
     <height>697</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Карточка сотрудника</string>
   </property>
-  <property name="modal">
-   <bool>true</bool>
-  </property>
-  <widget class="QDialogButtonBox" name="buttonBox">
-   <property name="geometry">
-    <rect>
-     <x>850</x>
-     <y>20</y>
-     <width>111</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
-   </property>
-   <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-   </property>
-  </widget>
-  <widget class="QTableView" name="tableView">
+  <widget class="QTableView" name="personalInfoTableView">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>30</y>
      <width>256</width>
-     <height>321</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QTableWidget" name="tableWidget">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>370</y>
-     <width>921</width>
-     <height>301</height>
+     <height>391</height>
     </rect>
    </property>
   </widget>
@@ -56,9 +30,9 @@
    <property name="geometry">
     <rect>
      <x>300</x>
-     <y>30</y>
-     <width>111</width>
-     <height>141</height>
+     <y>10</y>
+     <width>500</width>
+     <height>500</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -67,41 +41,41 @@
    <property name="text">
     <string/>
    </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QTableView" name="averageStatsTableView">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>451</y>
+     <width>256</width>
+     <height>211</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTableView" name="personalSkillsTableView">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>200</y>
+     <width>256</width>
+     <height>192</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="radarWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>50</y>
+     <width>256</width>
+     <height>141</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>PersonalCardWidget</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>157</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>PersonalCardWidget</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>286</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

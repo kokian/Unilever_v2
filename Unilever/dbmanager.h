@@ -11,8 +11,8 @@ class DBManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit DBManager(QObject *parent = 0);
-    DBManager(QString host, int port, QString driver, QString name, QString user, QString password, QObject *parent = 0);
+    static DBManager* getInstance();
+
 
     bool createConnection(QString host, int port, QString driver, QString name, QString user, QString password);
     bool connect();
@@ -25,6 +25,9 @@ public:
 
     ~DBManager();
 private:
+    explicit DBManager(QObject *parent = 0);
+    DBManager(QString host, int port, QString driver, QString name, QString user, QString password, QObject *parent = 0);
+    static DBManager* instance;
     QString db_host;
     int db_port;
     QString db_driver;
