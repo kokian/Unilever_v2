@@ -17,8 +17,13 @@ public:
     explicit PersonalCardWidget(QString& personal_id,QWidget *parent = 0);
     ~PersonalCardWidget();
 
+private slots:
+    void on_changePillarComboBox_activated(const QString &arg1);
+
 private:
     Ui::PersonalCardWidget *ui;
+
+    void createInfoTableView();
 
     QChartViewer* stackRadarWidget;
     QChartViewer* drawStackRadar(QSqlTableModel *model);

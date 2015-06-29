@@ -21,7 +21,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QTableView" name="tableView">
+       <widget class="QTableView" name="infoTable">
         <property name="minimumSize">
          <size>
           <width>330</width>
@@ -171,7 +171,7 @@
          <enum>QLayout::SetFixedSize</enum>
         </property>
         <item>
-         <widget class="QComboBox" name="comboBox">
+         <widget class="QComboBox" name="changePillarComboBox">
           <property name="minimumSize">
            <size>
             <width>440</width>
@@ -257,18 +257,6 @@
      </layout>
     </item>
    </layout>
-   <zorder>layoutWidget</zorder>
-   <zorder>tableView</zorder>
-   <zorder>label_2</zorder>
-   <zorder>statsRadar_label</zorder>
-   <zorder>verticalSpacer</zorder>
-   <zorder>tableView_2</zorder>
-   <zorder>verticalSpacer_2</zorder>
-   <zorder>verticalSpacer_3</zorder>
-   <zorder>statsRadar_label</zorder>
-   <zorder>comboBox</zorder>
-   <zorder>horizontalSpacer</zorder>
-   <zorder>horizontalSpacer_2</zorder>
    <zorder>verticalSpacer_4</zorder>
   </widget>
  </widget>

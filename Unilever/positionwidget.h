@@ -15,6 +15,9 @@ public:
     explicit PositionWidget(QWidget *parent = 0);
     ~PositionWidget();
 
+private slots:
+    void on_pushButton_2_clicked();
+
 private:
     Ui::PositionWidget *ui;
 };

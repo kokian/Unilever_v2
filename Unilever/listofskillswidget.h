@@ -15,6 +15,9 @@ public:
     explicit ListOfSkillsWidget(QWidget *parent = 0);
     ~ListOfSkillsWidget();
 
+private slots:
+    void on_pushButton_2_clicked();
+
 private:
     Ui::ListOfSkillsWidget *ui;
 };

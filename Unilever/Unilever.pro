@@ -59,7 +59,7 @@ INCLUDEPATH += ../../ChartDirector/include
 
 DEFINES += CHARTDIR_HIDE_OBSOLETE
 
-win32: LIBS += ../../ChartDirector/lib/chartdir51.lib
+win32: LIBS += ../../ChartDirector/lib/chartdir60.lib
 macx:  LIBS += -L ../../ChartDirector/lib
 
 CONFIG -= app_bundle

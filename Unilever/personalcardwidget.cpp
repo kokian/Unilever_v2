@@ -2,6 +2,7 @@
 #include "ui_personalcardwidget.h"
 
 #include "dbmanager.h"
+#include "constants.h"
 #include <QSqlTableModel>
 #include <QLayout>
 
@@ -10,6 +11,8 @@ PersonalCardWidget::PersonalCardWidget(QString& personal_id,QWidget *parent) :
     ui(new Ui::PersonalCardWidget)
 {
     ui->setupUi(this);
+
+    createInfoTableView();
 
     QSqlTableModel* model = DBManager::getInstance()->initModel(ENT_EMPLOYEES_X_SKILLS);
     model->setFilter(QString("employee_id='%1'").arg(personal_id));    
@@ -23,6 +26,9 @@ PersonalCardWidget::PersonalCardWidget(QString& personal_id,QWidget *parent) :
     QLayout* statsRadarLayout = new QHBoxLayout();
     statsRadarLayout->addWidget(this->drawStatsRadar(model));
     ui->statsRadar_label->setLayout(statsRadarLayout);
+
+    ui->changePillarComboBox->setModel(DBManager::getInstance()->initModel(ENT_PILLARS));
+    ui->changePillarComboBox->setModelColumn(1);
 
 
 
@@ -235,4 +241,16 @@ BaseChart* PersonalCardWidget::statsradar(int, const char **imageMap, QSqlTableM
         "title='Current {label}: {value}% in {dataSetName}'");
 
     return c;
+}
+
+void PersonalCardWidget::createInfoTableView() {
+
+
+
+
+}
+
+void PersonalCardWidget::on_changePillarComboBox_activated(const QString &arg1)
+{
+    ui->infoTable->hide();
 }
