@@ -17,7 +17,8 @@ XlsEmployeeListModel::XlsEmployeeListModel(QSqlDatabase* db, QWidget *parent)
 
 XlsEmployeeListModel::~XlsEmployeeListModel()
 {
-
+    delete dbModel;
+    delete query;
 }
 
 int XlsEmployeeListModel::rowCount(const QModelIndex &parent) const {
@@ -36,7 +37,8 @@ QVariant XlsEmployeeListModel::data(const QModelIndex & index, int role) const {
     switch(role) {
     case Qt::BackgroundColorRole:
     {
-        return this->identifyBrush(index);
+        //return this->identifyBrush(index);
+        return QStandardItemModel::data(index, role);
     }
     default:
         return QStandardItemModel::data(index, role);

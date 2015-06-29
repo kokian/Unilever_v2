@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     skillslevelwidget.cpp \
     skillswidget.cpp \
     qchartviewer.cpp \
-    personalcardwidget.cpp
+    personalcardwidget.cpp \
+    xlsemployeelistmodel.cpp
 
 HEADERS  += mainwindow.h \
     aboutdialog.h \
@@ -38,7 +39,8 @@ HEADERS  += mainwindow.h \
     skillslevelwidget.h \
     skillswidget.h \
     qchartviewer.h \
-    personalcardwidget.h
+    personalcardwidget.h \
+    xlsemployeelistmodel.h
 
 FORMS    += mainwindow.ui \
     aboutdialog.ui \
@@ -53,11 +55,12 @@ FORMS    += mainwindow.ui \
 RESOURCES += \
     unileverres.qrc
 
-INCLUDEPATH += E:\SekiraRepo\ChartDirector\include
+INCLUDEPATH += ../../ChartDirector/include
 
 DEFINES += CHARTDIR_HIDE_OBSOLETE
 
-LIBS += E:\SekiraRepo\ChartDirector\lib\chartdir60.lib
+win32: LIBS += ../../ChartDirector/lib/chartdir51.lib
+macx:  LIBS += -L ../../ChartDirector/lib
 
 CONFIG -= app_bundle
 CONFIG += c++11

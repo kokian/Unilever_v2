@@ -22,6 +22,11 @@ typedef enum {
     VIEW_COUNT
 } VIEW_NAME;
 
+typedef enum {
+    MODE_DB = 0,
+    MODE_XLS
+} MODEL_MODE;
+
 static const QString tableNames[2] = {"ul_employees", "ul_skills"};
 
 // SQL

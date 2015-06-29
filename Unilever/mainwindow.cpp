@@ -19,8 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
-    //dbManager = new DBManager("188.166.126.89", 5432, "QPSQL", "postgres", "postgres", "74507", this);
     dbManager = DBManager::getInstance();
     dbManager->connect();
 

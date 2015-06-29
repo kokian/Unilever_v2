@@ -1,5 +1,6 @@
 #include "parsemanager.h"
 #include "xlsemployeelistmodel.h"
+#include "dbmanager.h"
 
 ParseManager::ParseManager(QObject *parent) : QObject(parent) {
     fileName = "..\\employees.xlsx";
@@ -62,9 +63,13 @@ QStandardItemModel* ParseManager::loadEmployeeListToModel() {
         qDebug() << "Sheet[" << i << "] = " << sheets[i];
     }
 
-    XlsEmployeeListModel* model = new XlsEmployeeListModel(&this->conn);
+    //XlsEmployeeListModel* model = new XlsEmployeeListModel(&this->conn);
+    QStandardItemModel* model = new QStandardItemModel(this);
     QList<QString> strings;
     QList<QStandardItem*> items;
+
+    QSqlQuery* query = new QSqlQuery(DBManager::getInstance()->connection);
+    query->exec(QString("SELECT * FROM ul_employees"));
 
     doc->selectSheet(sheets[1]);
     int row = 2;
@@ -81,8 +86,33 @@ QStandardItemModel* ParseManager::loadEmployeeListToModel() {
         QString reported = doc->read(row,9).toString();
 
         strings << name_leg << job_title << position_title << department << hire_date << code << name << reported;
-        for(int i = 0; i< strings.count(); i++) {
-            items.append(new QStandardItem(strings.at(i)));
+
+        query->first();
+        bool isFound = false;
+        int db_code_index = query->record().indexOf("code");
+        do {
+            QSqlRecord rec = query->record();
+            QString db_code = rec.value(db_code_index).toString();
+            if (db_code.compare(code) == 0) {
+                for(int col = 0; col < strings.count(); col++) {
+                    QStandardItem* item = new QStandardItem(strings.at(col));
+                    QString db_value = rec.value(col+1).toString();
+                    if(db_value.compare(strings.at(col))) {
+                        item->setData(QBrush(Qt::gray), Qt::BackgroundRole);
+                    }
+                    items.append(item);
+                }
+                isFound = true;
+                break;
+            }
+        } while (query->next());
+
+        if(!isFound) {
+            for(int col = 0; col < strings.count(); col++) {
+                QStandardItem* item = new QStandardItem(strings.at(col));
+                item->setData(QBrush(Qt::gray), Qt::BackgroundRole);
+                items.append(item);
+            }
         }
         model->appendRow(items);
         row++;
