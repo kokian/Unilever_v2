@@ -25,6 +25,13 @@ EmployeesWidget::~EmployeesWidget()
     delete ui;
 }
 
+void EmployeesWidget::importEmployeesFromXls(QString filename) {
+    ParseManager* p = new ParseManager(this, DBManager::getInstance()->connection);
+    p->fileName = filename;
+    QStandardItemModel* model = p->loadEmployeeListToModel();
+    ui->tableView->setModel(model);
+}
+
 void EmployeesWidget::on_tableView_doubleClicked(const QModelIndex &index)
 {
     QModelIndex idIndex = index.model()->index(index.row(), 0);
