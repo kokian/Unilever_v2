@@ -19,9 +19,15 @@ public:
 
 private:
     Ui::PersonalCardWidget *ui;
-    QChartViewer* radarWidget;
-    QChartViewer* drawRadar(QSqlTableModel *model);
+
+    QChartViewer* stackRadarWidget;
+    QChartViewer* drawStackRadar(QSqlTableModel *model);
     BaseChart* stackradar(int, const char **imageMap, QSqlTableModel *model);
+
+    QChartViewer* statsRadarWidget;
+    QChartViewer* drawStatsRadar(QSqlTableModel *model);
+    BaseChart* statsradar(int, const char **imageMap, QSqlTableModel *model);
+
 };
 
 #endif // PERSONALCARDWIDGET_H

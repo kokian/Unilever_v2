@@ -106,4 +106,5 @@ void MainWindow::on_action_Import_triggered()
     QWidget* curWidget = ui->tabWidget->widget(ui->tabWidget->currentIndex());
     EmployeesWidget* pEmplWgt = static_cast<EmployeesWidget*>(curWidget);
     pEmplWgt->importEmployeesFromXls(fileName);
+
 }
