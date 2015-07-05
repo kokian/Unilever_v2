@@ -15,17 +15,19 @@ PersonalCardWidget::PersonalCardWidget(QString& personal_id,QWidget *parent) :
     createInfoTableView();
 
     QSqlTableModel* model = DBManager::getInstance()->initModel(ENT_EMPLOYEES_X_SKILLS);
-    model->setFilter(QString("employee_id='%1'").arg(personal_id));    
+    model->setFilter(QString("employee_id='%1' AND unknown_id=1").arg(personal_id));
     model->select();
     ui->personalSkillsTableView->setModel(model);
 
-    QLayout* stackRadarLayout = new QHBoxLayout();
+  /*  QLayout* stackRadarLayout = new QHBoxLayout();
     stackRadarLayout->addWidget(this->drawStackRadar(model));
     ui->stackRadar_label->setLayout(stackRadarLayout);
 
     QLayout* statsRadarLayout = new QHBoxLayout();
     statsRadarLayout->addWidget(this->drawStatsRadar(model));
-    ui->statsRadar_label->setLayout(statsRadarLayout);
+    ui->statsRadar_label->setLayout(statsRadarLayout);*/
+
+    ui->radarWcmLayout->addWidget(drawAvgRadar(model));
 
     ui->changePillarComboBox->setModel(DBManager::getInstance()->initModel(ENT_PILLARS));
     ui->changePillarComboBox->setModelColumn(1);
@@ -37,6 +39,56 @@ PersonalCardWidget::PersonalCardWidget(QString& personal_id,QWidget *parent) :
 PersonalCardWidget::~PersonalCardWidget()
 {
     delete ui;
+}
+
+ChartRadar* PersonalCardWidget::drawAvgRadar(QSqlTableModel *model)
+{
+    ChartRadar* tmp = new ChartRadar(this);
+
+    tmp->setSize(440);
+    tmp->setGridScale(5);
+    tmp->setHeader("Тестовая диаграмма");
+
+    int skill_index = model->fieldIndex("description");
+    //int unknown_index = model->fieldIndex("unknown_id");
+    int target_index = model->fieldIndex("target");
+    int m2013_H2_index = model->fieldIndex("m2013_H2");
+    int m2014_H1_index = model->fieldIndex("m2014_H1");
+    int m2014_H2_index = model->fieldIndex("m2014_H2");
+    int m2015_H1_index = model->fieldIndex("m2015_H1");
+    int m2015_H2_index = model->fieldIndex("m2015_H2");
+
+    QList<QString> labels;
+    QList<QString> legendTitles;
+    QList<float> values1;
+    QList<float> values2;
+    QList<float> values3;
+    QList<float> values4;
+    QList<float> values5;
+    QList<float> values6;
+    int count = model->rowCount();
+    for(int i = 0; i < count; i++) {
+        QSqlRecord rec = model->record(i);
+        values1 << rec.value(target_index).toDouble();
+        values2 << rec.value(m2013_H2_index).toDouble();
+        values3 << rec.value(m2014_H1_index).toDouble();
+        values4 << rec.value(m2014_H2_index).toDouble();
+        values5 << rec.value(m2015_H1_index).toDouble();
+        values6 << rec.value(m2015_H2_index).toDouble();
+
+        labels << rec.value(skill_index).toString();
+    }
+    tmp->setIndicatorsList(QStringList(labels));
+
+    tmp->addData("test1",values1);
+    tmp->addData("test2",values2);
+    tmp->addData("test3",values3);
+    tmp->addData("test4",values4);
+    tmp->addData("test5",values5);
+    tmp->addData("test6",values6);
+
+    tmp->draw();
+    return tmp;
 }
 
 QChartViewer* PersonalCardWidget::drawStackRadar(QSqlTableModel *model) {

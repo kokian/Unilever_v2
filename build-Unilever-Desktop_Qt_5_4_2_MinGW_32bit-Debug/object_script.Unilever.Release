@@ -13,6 +13,7 @@ INPUT(
 ./release\qchartviewer.o
 ./release\personalcardwidget.o
 ./release\xlsemployeelistmodel.o
+./release\chartradar.o
 ./release\qrc_unileverres.o
 ./release\moc_mainwindow.o
 ./release\moc_aboutdialog.o
@@ -27,4 +28,5 @@ INPUT(
 ./release\moc_qchartviewer.o
 ./release\moc_personalcardwidget.o
 ./release\moc_xlsemployeelistmodel.o
+./release\moc_chartradar.o
 );
