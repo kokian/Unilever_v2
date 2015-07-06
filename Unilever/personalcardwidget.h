@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "qchartviewer.h"
 #include <QSqlTableModel>
+#include "chartradar.h"
 
 namespace Ui {
 class PersonalCardWidget;
@@ -22,6 +23,11 @@ private slots:
 
 private:
     Ui::PersonalCardWidget *ui;
+
+    ChartRadar *CR_avg;
+    ChartRadar *CR_wcm;
+
+    ChartRadar* drawAvgRadar(QSqlTableModel *model);
 
     void createInfoTableView();
 

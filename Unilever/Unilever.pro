@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     skillswidget.cpp \
     qchartviewer.cpp \
     personalcardwidget.cpp \
-    xlsemployeelistmodel.cpp
+    xlsemployeelistmodel.cpp \
+    chartradar.cpp
 
 HEADERS  += mainwindow.h \
     aboutdialog.h \
@@ -40,7 +41,8 @@ HEADERS  += mainwindow.h \
     skillswidget.h \
     qchartviewer.h \
     personalcardwidget.h \
-    xlsemployeelistmodel.h
+    xlsemployeelistmodel.h \
+    chartradar.h
 
 FORMS    += mainwindow.ui \
     aboutdialog.ui \
